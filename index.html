@@ -8,6 +8,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="password-overlay" id="passwordOverlay" aria-live="polite">
+        <div class="password-card">
+            <h2>Habari, Mpenzi</h2>
+            <p>Weka neno la siri ili kufungua ujumbe huu wa moyo.</p>
+            <form id="passwordForm">
+                <input type="password" id="passwordInput" placeholder="Ingiza nenosiri" autocomplete="off" required>
+                <button type="submit">Fungua</button>
+                <p class="password-error" id="passwordError" role="alert"></p>
+            </form>
+        </div>
+    </div>
     <!-- Hero Section -->
     <section id="hero" class="hero-section">
         <div class="hero-content">

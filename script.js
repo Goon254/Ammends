@@ -1,6 +1,13 @@
+const PASSWORD_VALUE = 'Kivuruga coco';
+const PASSWORD_STORAGE_KEY = 'kivurugaCocoUnlocked';
+
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    
+    enforcePasswordProtection();
+    initializeSiteFeatures();
+});
+
+function initializeSiteFeatures() {
     // Smooth scrolling for any internal links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -49,7 +56,48 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add heart particles on scroll
     addHeartParticles();
-});
+}
+
+function enforcePasswordProtection() {
+    const overlay = document.getElementById('passwordOverlay');
+    const form = document.getElementById('passwordForm');
+    const input = document.getElementById('passwordInput');
+    const error = document.getElementById('passwordError');
+
+    if (!overlay || !form || !input) {
+        return;
+    }
+
+    const unlockSite = () => {
+        overlay.classList.add('hidden');
+        document.body.classList.remove('password-locked');
+        if (error) {
+            error.textContent = '';
+        }
+        localStorage.setItem(PASSWORD_STORAGE_KEY, 'true');
+    };
+
+    if (localStorage.getItem(PASSWORD_STORAGE_KEY) === 'true') {
+        unlockSite();
+        return;
+    }
+
+    document.body.classList.add('password-locked');
+    input.focus();
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (input.value.trim() === PASSWORD_VALUE) {
+            unlockSite();
+        } else {
+            if (error) {
+                error.textContent = 'Nenosiri si sahihi. Jaribu tena.';
+            }
+            input.value = '';
+            input.focus();
+        }
+    });
+}
 
 // Create floating sparkles animation
 function createFloatingSparkles() {
