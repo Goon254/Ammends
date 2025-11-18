@@ -84,6 +84,7 @@ Soft emotional tone. No begging.
 ---
 
 ### *E. “Our Favorite Photos” Gallery*
+*google drive the drive link ::https://photos.app.goo.gl/EAXqoqKfiPnxcXvE6
 
 * Masonry-style gallery (Pinterest style)
 * Soft rounded corners
@@ -120,7 +121,7 @@ Add a soft caption under each photo like:
 
 
 
-the drive link ::https://photos.app.goo.gl/EAXqoqKfiPnxcXvE6
+
 
 # ❤ *ROMANTIC & CALM CARD NOTE (NEW VERSION)*
 
